@@ -12,8 +12,8 @@ local globalKeys =
   -- Hotkeys
   awful.key({modkey}, 'F1', hotkeys_popup.show_help, {description = 'show help', group = 'awesome'}),
   -- Tag browsing
-  awful.key({modkey}, 'w', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
-  awful.key({modkey}, 's', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
+  awful.key({modkey}, 'k', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
+  awful.key({modkey}, 'j', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
   awful.key({altkey, 'Control'}, 'Up', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
   awful.key({altkey, 'Control'}, 'Down', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
   awful.key({modkey}, 'Escape', awful.tag.history.restore, {description = 'go back', group = 'tag'}),
@@ -229,14 +229,14 @@ local globalKeys =
     {description = 'restore minimized', group = 'client'}
   ),
   -- Dropdown application
-  awful.key(
-    {modkey},
-    'z',
-    function()
-      _G.toggle_quake()
-    end,
-    {description = 'dropdown application', group = 'launcher'}
-  ),
+  -- awful.key(
+  --   {modkey},
+  --   'z',
+  --   function()
+  --     _G.toggle_quake()
+  --   end,
+  --   {description = 'dropdown application', group = 'launcher'}
+  -- ),
   -- Widgets popups
   --[[awful.key(
     {altkey},
@@ -356,20 +356,22 @@ local globalKeys =
     end
   ),
    -- Lutris hotkey
-  awful.key(
-    {modkey},
-    'g',
-    function()
-      awful.util.spawn_with_shell('lutris')
-    end
-  ),
+  -- awful.key(
+  --   {modkey},
+  --   'g',
+  --   function()
+  --     awful.util.spawn_with_shell('lutris')
+  --   end
+  -- ),
+
   -- System Monitor hotkey - MATE version
   awful.key(
     {modkey},
     'm',
     function()
       awful.util.spawn_with_shell('mate-system-monitor')
-    end
+    end,
+    {description = 'System Monitor', group = 'launcher'}
   ),
   -- File Manager
   awful.key(
@@ -378,7 +380,7 @@ local globalKeys =
     function()
       awful.util.spawn(apps.default.files)
     end,
-    {description = 'Default File Manager launch', group = 'hotkeys'}
+    {description = 'Default File Manager launch', group = 'launcher'}
   )
 )
 
